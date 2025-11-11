@@ -45,6 +45,8 @@ jobs:
       with:
         version: ">=0.9"
     - name: Run Tox
+      env:
+        TAP_TALLY_API_KEY: ${{ secrets.TAP_TALLY_API_KEY }}
       run: |
         uvx --with=tox-uv tox -e $(echo py${{ matrix.python-version }} | tr -d .)
 
