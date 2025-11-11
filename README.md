@@ -6,7 +6,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
 ## Installation
 
-<!-- 
+<!--
 Install from PyPI:
 
 ```bash

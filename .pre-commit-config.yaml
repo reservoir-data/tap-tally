@@ -20,7 +20,7 @@ repos:
   - id: trailing-whitespace
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.34.1
+  rev: 1727129e1905f003427284ccbc497b03d815bb1c
   hooks:
   - id: check-dependabot
   - id: check-github-workflows
