@@ -1,0 +1,41 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: "tap-tally"
+default_environment: test
+requires_meltano: ">=4,<5"
+venv:
+  backend: uv
+environments:
+- name: test
+plugins:
+  extractors:
+  - name: "tap-tally"
+    namespace: "tap_tally"
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    - about
+    - stream-maps
+    - structured-logging
+
+    settings:
+    - name: api_key
+      label: API Key
+      kind: string
+      description: Your Tally API key
+      sensitive: false
+
+    - name: organization_ids
+      label: Organization IDs
+      kind: array
+      description: Your Tally organization IDs
+
+    settings_group_validation:
+    - [api_key]
+
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
