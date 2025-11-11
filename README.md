@@ -1,6 +1,6 @@
 # tap-tally
 
-`tap-tally` is a Singer tap for Tally.
+`tap-tally` is a Singer tap for [Tally](https://tally.so/).
 
 Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
