@@ -1,4 +1,3 @@
-version: 1
 send_anonymous_usage_stats: true
 project_id: "tap-tally"
 default_environment: test
@@ -10,6 +9,7 @@ environments:
 plugins:
   extractors:
   - name: "tap-tally"
+    python: python3.12
     namespace: "tap_tally"
     pip_url: -e .
     capabilities:
