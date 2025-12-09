@@ -146,15 +146,6 @@ wheels = [
 ]
 
 [[package]]
-name = "backoff"
-version = "2.2.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/47/d7/5bbeb12c44d7c4f2fb5b56abce497eb5ed9f34d85701de869acedd602619/backoff-2.2.1.tar.gz", hash = "sha256:03f829f5bb1923180821643f8753b0502c3b682293992485b0eef2807afa5cba", size = 17001, upload-time = "2022-10-05T19:19:32.061Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/df/73/b6e24bd22e6720ca8ee9a85a0c4a2971af8497d8f3193fa05390cbd46e09/backoff-2.2.1-py3-none-any.whl", hash = "sha256:63579f9a0628e06278f7e47b7d7d5b6ce20dc65c5e96a6f3ca99a6adca0396e8", size = 15148, upload-time = "2022-10-05T19:19:30.546Z" },
-]
-
-[[package]]
 name = "botocore"
 version = "1.40.70"
 source = { registry = "https://pypi.org/simple" }
@@ -783,6 +774,15 @@ wheels = [
 ]
 
 [[package]]
+name = "python-backoff"
+version = "2.3.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/cb/00/e39cd102ffa3405e14d32a1dfb03c163746e8c6797eee2a29efa45f15612/python_backoff-2.3.0.tar.gz", hash = "sha256:84f251492fc76ad615faaf8d4826dcb563bf98df53aad8ac887379857264b74a", size = 18422, upload-time = "2025-11-30T17:29:20.899Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c2/8c/61f291f88d900e815d766f56189c774ef1b7dbbefe42bd0a5080a086dd04/python_backoff-2.3.0-py3-none-any.whl", hash = "sha256:0d9eb5c63a470e6031ab2abb9cc974cf1846fc2c6c1b749b1f9ff5634d013b88", size = 15418, upload-time = "2025-11-30T17:29:19.743Z" },
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 source = { registry = "https://pypi.org/simple" }
@@ -1019,10 +1019,9 @@ wheels = [
 
 [[package]]
 name = "singer-sdk"
-version = "0.52.5"
+version = "0.53.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "backoff", marker = "python_full_version < '4'" },
     { name = "click" },
     { name = "fsspec" },
     { name = "inflection" },
@@ -1030,6 +1029,7 @@ dependencies = [
     { name = "jsonpath-ng" },
     { name = "jsonschema" },
     { name = "packaging" },
+    { name = "python-backoff" },
     { name = "python-dotenv" },
     { name = "pyyaml" },
     { name = "referencing" },
@@ -1040,9 +1040,9 @@ dependencies = [
     { name = "typing-extensions", marker = "python_full_version < '3.13'" },
     { name = "universal-pathlib" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/04/47/7535a2422edca364119f5df4f60071ec970cc9b5de700433002987d0791b/singer_sdk-0.52.5.tar.gz", hash = "sha256:76ee3027663fda37d4370bfdf11db0dd1e69ba9b9931cc3e6e1c0005ccd874e7", size = 1327335, upload-time = "2025-10-30T01:50:18.669Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/05/ff/71a0e47688a6832eb86991694dccc512391b5dd614c6f87a11f35900861a/singer_sdk-0.53.4.tar.gz", hash = "sha256:b380cffb7b32edcc25a22c920726845ebfc53220782cf475369bd10b67ff7e81", size = 1333586, upload-time = "2025-11-29T00:14:52.535Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/87/b7/e384faa53efb150fc6d937d4fb1a82a1e80bc6ad2708e4f228790f20516f/singer_sdk-0.52.5-py3-none-any.whl", hash = "sha256:1919bd509cec29a7a0442303b2cecd007913725ecd108f5b657de17fcb1be972", size = 205104, upload-time = "2025-10-30T01:50:16.662Z" },
+    { url = "https://files.pythonhosted.org/packages/b5/2b/0014d0962f45547295d43037d3ad1470f42124bba1424b1e9de7ce180666/singer_sdk-0.53.4-py3-none-any.whl", hash = "sha256:0d3899eba6109dc4c2178248cfe6d0626b9743899f02a3107490e97ead3dd66b", size = 207938, upload-time = "2025-11-29T00:14:50.743Z" },
 ]
 
 [package.optional-dependencies]
@@ -1123,7 +1123,7 @@ typing = [
 requires-dist = [
     { name = "requests", specifier = "~=2.32.3" },
     { name = "s3fs", marker = "extra == 's3'", specifier = "~=2025.10.0" },
-    { name = "singer-sdk", specifier = "~=0.52.5" },
+    { name = "singer-sdk", specifier = "~=0.53.4" },
 ]
 provides-extras = ["s3"]
 
