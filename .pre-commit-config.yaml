@@ -1,5 +1,6 @@
 ci:
   autofix_prs: true
+  autofix_commit_msg: 'chore: pre-commit fixes'
   autoupdate_schedule: weekly
   autoupdate_commit_msg: 'chore: pre-commit autoupdate'
   skip:

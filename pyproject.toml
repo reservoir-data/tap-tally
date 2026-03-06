@@ -10,7 +10,6 @@ keywords = [
 ]
 classifiers = [
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -38,7 +37,7 @@ dev = [
     { include-group = "test" },
 ]
 test = [
-    "pytest>=8",
+    "pytest>=9",
     "pytest-github-actions-annotate-failures>=0.3",
     "singer-sdk[testing]",
 ]
@@ -48,12 +47,26 @@ typing = [
     "types-requests",
 ]
 
-[tool.pytest.ini_options]
+[tool.pytest]
 addopts = [
     "--durations=10",
+    "-ra",
+    "--strict-config",
+    "--strict-markers",
 ]
+filterwarnings = [
+    "error",
+    "once:Fields in transformed catalog but not in records:UserWarning",
+]
+log_level = "INFO"
+minversion = "9"
+strict = true
+testpaths = ["tests"]
 
 [tool.mypy]
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+strict = true
+warn_unreachable = true
 warn_unused_configs = true
 
 [tool.ruff]
