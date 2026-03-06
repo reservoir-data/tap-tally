@@ -20,7 +20,7 @@ class _OrganizationStream(TallyStream):
 
     @override
     @cached_property
-    def partitions(self) -> list[dict] | None:
+    def partitions(self) -> list[dict[str, Any]] | None:
         org_ids: list[str] = self.config.get("organization_ids", [])
         if not org_ids:
             user_info_request = requests.Request(method="GET", url=f"{self.url_base}/users/me")

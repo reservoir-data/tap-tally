@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import override
+from typing import Any, override
 
 from singer_sdk import SchemaDirectory, StreamSchema
 from singer_sdk.authenticators import BearerTokenAuthenticator
@@ -13,7 +13,7 @@ from tap_tally import schemas
 SCHEMAS_DIR = SchemaDirectory(schemas)
 
 
-class TallyStream(RESTStream):
+class TallyStream(RESTStream[Any]):
     """Tally stream class."""
 
     records_jsonpath = "$[*]"

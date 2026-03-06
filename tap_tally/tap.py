@@ -2,12 +2,15 @@
 
 from __future__ import annotations
 
-from typing import override
+from typing import TYPE_CHECKING, override
 
 from singer_sdk import Tap
 from singer_sdk import typing as th  # JSON schema typing helpers
 
 from tap_tally import streams
+
+if TYPE_CHECKING:
+    from tap_tally.client import TallyStream
 
 
 class TapTally(Tap):
@@ -35,7 +38,7 @@ class TapTally(Tap):
     ).to_dict()
 
     @override
-    def discover_streams(self) -> list[streams.TallyStream]:
+    def discover_streams(self) -> list[TallyStream]:
         return [
             streams.UsersStream(self),
             streams.InvitesStream(self),
