@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING, Any, override
 
 import requests
 from singer_sdk import typing as th  # JSON Schema typing helpers
-from singer_sdk.pagination import BasePageNumberPaginator
+from singer_sdk.pagination import PageNumberPaginator
 
 from tap_tally.client import TallyStream
 
@@ -109,8 +109,8 @@ class FormsStream(_OrganizationStream):
     ).to_dict()
 
     @override
-    def get_new_paginator(self) -> BasePageNumberPaginator:
-        return BasePageNumberPaginator(start_value=1)
+    def get_new_paginator(self) -> PageNumberPaginator:
+        return PageNumberPaginator(start_value=1)
 
     @override
     def get_url_params(
@@ -188,8 +188,8 @@ class SubmissionsStream(TallyStream):
     ).to_dict()
 
     @override
-    def get_new_paginator(self) -> BasePageNumberPaginator:
-        return BasePageNumberPaginator(start_value=1)
+    def get_new_paginator(self) -> PageNumberPaginator:
+        return PageNumberPaginator(start_value=1)
 
     @override
     def get_url_params(
@@ -255,8 +255,8 @@ class WorkspacesStream(TallyStream):
     ).to_dict()
 
     @override
-    def get_new_paginator(self) -> BasePageNumberPaginator:
-        return BasePageNumberPaginator(start_value=1)
+    def get_new_paginator(self) -> PageNumberPaginator:
+        return PageNumberPaginator(start_value=1)
 
     @override
     def get_url_params(
@@ -304,8 +304,8 @@ class WebhooksStream(TallyStream):
     ).to_dict()
 
     @override
-    def get_new_paginator(self) -> BasePageNumberPaginator:
-        return BasePageNumberPaginator(start_value=1)
+    def get_new_paginator(self) -> PageNumberPaginator:
+        return PageNumberPaginator(start_value=1)
 
     @override
     def get_url_params(
