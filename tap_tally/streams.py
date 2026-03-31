@@ -118,8 +118,7 @@ class FormsStream(_OrganizationStream):
         context: Context | None,
         next_page_token: int | None,
     ) -> dict[str, Any]:
-        params: dict[str, Any] = super().get_url_params(context, next_page_token)  # type: ignore[assignment]
-        params["limit"] = self.PAGE_SIZE
+        params: dict[str, Any] = {"limit": self.PAGE_SIZE}
         if next_page_token is not None:
             params["page"] = next_page_token
         return params
@@ -197,8 +196,7 @@ class SubmissionsStream(TallyStream):
         context: Context | None,
         next_page_token: int | None,
     ) -> dict[str, Any]:
-        params: dict[str, Any] = super().get_url_params(context, next_page_token)  # type: ignore[assignment]
-        params["filter"] = self.SUBMISSION_FILTER
+        params: dict[str, Any] = {"filter": self.SUBMISSION_FILTER}
         if next_page_token is not None:
             params["page"] = next_page_token
         return params
@@ -264,7 +262,7 @@ class WorkspacesStream(TallyStream):
         context: Context | None,
         next_page_token: int | None,
     ) -> dict[str, Any]:
-        params: dict[str, Any] = super().get_url_params(context, next_page_token)  # type: ignore[assignment]
+        params = {}
         if next_page_token is not None:
             params["page"] = next_page_token
         return params
@@ -313,8 +311,7 @@ class WebhooksStream(TallyStream):
         context: Context | None,
         next_page_token: int | None,
     ) -> dict[str, Any]:
-        params: dict[str, Any] = super().get_url_params(context, next_page_token)  # type: ignore[assignment]
-        params["limit"] = self.PAGE_SIZE
+        params: dict[str, Any] = {"limit": self.PAGE_SIZE}
         if next_page_token is not None:
             params["page"] = next_page_token
         return params
