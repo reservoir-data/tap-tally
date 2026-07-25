@@ -46,9 +46,9 @@ class TapTally(Tap):
             streams.QuestionsStream(self),
             streams.SubmissionsStream(self),
             streams.WorkspacesStream(self),
-            # TODO(edgarrmondragon): Enable webhooks streams  # noqa: FIX002
+            # TODO(edgarrmondragon): Enable webhooks streams  # ruff: ignore[line-contains-todo]
             # https://github.com/reservoir-data/tap-tally/issues/1
-            # streams.WebhooksStream(self),  # noqa: ERA001
+            # streams.WebhooksStream(self),  # ruff: ignore[commented-out-code]
         ]
 
 

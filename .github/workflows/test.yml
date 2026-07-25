@@ -30,19 +30,32 @@ env:
   FORCE_COLOR: 1
 
 jobs:
+  build-package:
+    name: Build & verify package
+    runs-on: ubuntu-latest
+    outputs:
+      supported-python-versions: ${{ steps.baipp.outputs.supported_python_classifiers_json_array }}
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: hynek/build-and-inspect-python-package@d44ca7d91762de7a7d5436ddae667c6da6d1c3df # v2.18.0
+        id: baipp
+
   pytest:
     name: Integration Tests
     runs-on: ubuntu-latest
+    needs: build-package
     strategy:
       fail-fast: false
       max-parallel: 1
       matrix:
-        python-version:
-        - "3.14"
-        - "3.13"
-        - "3.12"
+        python-version: ${{ fromJson(needs.build-package.outputs.supported-python-versions) }}
     steps:
     - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      with:
+        persist-credentials: false
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
       with:
@@ -54,14 +67,17 @@ jobs:
     - name: Run Tox
       env:
         TAP_TALLY_API_KEY: ${{ secrets.TAP_TALLY_API_KEY }}
+        MATRIX_PYTHON_VERSION: ${{ matrix.python-version }}
       run: |
-        uvx --with=tox-uv tox -e $(echo py${{ matrix.python-version }} | tr -d .)
+        uvx --with=tox-uv tox -e "${MATRIX_PYTHON_VERSION}"
 
   typing:
     name: Type Checking
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      with:
+        persist-credentials: false
     - name: Set up Python
       uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
       with:
