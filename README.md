@@ -24,6 +24,7 @@ uv tool install git+https://github.com/reservoir-data/tap-tally.git@main
 - 3.12
 - 3.13
 - 3.14
+- 3.15
 
 ## Settings
 
