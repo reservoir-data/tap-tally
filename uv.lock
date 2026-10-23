@@ -1593,7 +1593,7 @@ typing = [
 [package.metadata]
 requires-dist = [
     { name = "requests", specifier = "~=2.34.0" },
-    { name = "s3fs", marker = "extra == 's3'", specifier = "~=2026.9.0" },
+    { name = "s3fs", marker = "extra == 's3'", specifier = "~=2026.9" },
     { name = "singer-sdk", specifier = "~=0.55.0a1" },
 ]
 provides-extras = ["s3"]
