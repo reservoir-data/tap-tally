@@ -21,7 +21,6 @@ uv tool install git+https://github.com/reservoir-data/tap-tally.git@main
 
 ## Supported Python Versions
 
-- 3.12
 - 3.13
 - 3.14
 - 3.15
@@ -80,7 +79,7 @@ Follow these instructions to contribute to this project.
 
 Prerequisites:
 
-- Python 3.12+
+- Python 3.13+
 - [uv](https://docs.astral.sh/uv/)
 
 ```bash

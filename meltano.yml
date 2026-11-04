@@ -9,7 +9,6 @@ environments:
 plugins:
   extractors:
   - name: "tap-tally"
-    python: python3.12
     namespace: "tap_tally"
     pip_url: -e .
     capabilities:
